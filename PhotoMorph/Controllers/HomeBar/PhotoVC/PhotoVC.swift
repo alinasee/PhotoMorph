@@ -47,12 +47,11 @@ class PhotoVC: UIViewController {
         present(imageVC, animated: true)
     }
     @IBAction func morphAction(_ sender: Any) {
-        convertImageToBase64()
+        loadIndicator.startAnimating()
         let prefix = "data:image/jpeg;base64,"
         let data = [prefix + imageBase64toSend, "version 1 (🔺 stylization, 🔻 robustness)"]
         let fnIndex = 0
         let action = "predict"
-        loadIndicator.startAnimating()
         NetworkManager.postAnimeGanV1(action: action, data: data, fnIndex: fnIndex, sessionHash: sessionHash) { responce in
             guard let hash  = responce.hash else { return }
             print("хэш получен \(hash)")
@@ -61,17 +60,17 @@ class PhotoVC: UIViewController {
                 if counter <= 5 {
                     NetworkManager.statusAnimeGanV1(hash: hash) { statusResponse in
                         if statusResponse.status == "COMPLETE" {
+                            timer.invalidate()
                             guard let receivedArray = statusResponse.data?.data else { return }
                             let string = receivedArray[0]
                             let beginningOfSentence = string.lastIndex(of: ",")!
-                            let firstSentence = string[beginningOfSentence...]
-                            self.chekLabel.text = String(firstSentence)
-                            let realString = String(firstSentence)
+                            let slycedSentence = string[string.index(beginningOfSentence, offsetBy: 1)...]
+                            self.loadIndicator.stopAnimating()
+                            let realString = String(slycedSentence)
                             let image = self.convertBase64ToImage(base64String: realString )
-                            
-//                            let resultVC = ResultVC(nibName: (String(describing: ResultVC.self)), bundle: nil)
-//                            self.navigationController?.pushViewController(resultVC, animated: true)
-//                            resultVC.image = image
+                            let resultVC = ResultVC(nibName: (String(describing: ResultVC.self)), bundle: nil)
+                            resultVC.image = image
+                            self.present(resultVC, animated: true)
                         } else {
                             let alert  = UIAlertController(title: nil, message: "Проблемы с сервером, попробуйте еще раз", preferredStyle: .alert)
                             let okAction = UIAlertAction(title: "OK", style: .default)
@@ -82,14 +81,15 @@ class PhotoVC: UIViewController {
                         print("все плохо")
                         counter += 1
                     }
-                }
+                } else {
+                    timer.invalidate()}
                 
             }
             
         } failure: {
             print("хэш не получен")
         }
-        loadIndicator.startAnimating()
+        
     }
     
     func convertImageToBase64(){
@@ -99,8 +99,6 @@ class PhotoVC: UIViewController {
     }
     
     func convertBase64ToImage(base64String: String) -> UIImage {
-        let sourceData = Data()
-        let base64String = sourceData.base64EncodedString()
         guard let stringData = Data(base64Encoded: base64String),
               let uiImage = UIImage(data: stringData) else {
             return errorPic}
@@ -127,6 +125,7 @@ extension PhotoVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerOriginalImage")] as? UIImage {
             chosenPhotoImage.image = image
             morphImage = image
+            convertImageToBase64()
             generateRandomString()
             if chosenPhotoImage.image != nil {
                 morphButton.isEnabled = true
