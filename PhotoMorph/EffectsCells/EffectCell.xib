@@ -22,6 +22,9 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tAU-QZ-nNE">
                                 <rect key="frame" x="0.0" y="0.0" width="358" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tAU-QZ-nNE" secondAttribute="height" multiplier="179:75" id="y5Z-Mb-ZP6"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

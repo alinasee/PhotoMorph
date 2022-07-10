@@ -8,68 +8,114 @@
 import Foundation
 import UIKit
 
-enum EffectType {
-    case robustness
-    case stilization
-    case romantic
-    case magical
-    case expressive
-    case art
-    case disney
-    
-}
-
 
 enum Effect: CaseIterable {
     
-    case watercolour
-    case arcane
-    case artistic
-   
-    
-    var firstType: EffectType {
-        switch self {
-        case .watercolour:
-            return EffectType.robustness
-        case .arcane:
-            return EffectType.romantic
-        case .artistic:
-            return EffectType.art
+    case firstEffect
+    case secondEffect
+    case thirdEffect
+    case fourthEffect
+    case fifthEffect
+    case sixthEffect
+        
+    var effectName: String{
+        switch self{
+        case .firstEffect:
+            return "firstEffect"
+        case .secondEffect:
+            return "secondEffect"
+        case .thirdEffect:
+            return "thirdEffect"
+        case .fourthEffect:
+            return "fourthEffect"
+        case .fifthEffect:
+            return "fifthEffect"
+        case .sixthEffect:
+            return "sixthEffect"
         }
     }
-    var secondType: EffectType {
-        switch self {
-        case .watercolour:
-            return EffectType.stilization
-        case .arcane:
-            return EffectType.magical
-        case .artistic:
-            return EffectType.disney
-        }
-    }
-    var thirdType: EffectType? {
-        switch self {
-        case .watercolour:
-            return nil
-        case .arcane:
-            return EffectType.expressive
-        case .artistic:
-            return nil
-        }
-    }
+        
     var effectPic: UIImage {
         switch self {
-        case .watercolour:
-            return UIImage(named: "1")!
-        case .arcane:
-            return UIImage(named: "2")!
-        case .artistic:
-            return UIImage(named: "3")!
-
+        case .firstEffect:
+            return UIImage(named: "11")!
+        case .secondEffect:
+            return UIImage(named: "12")!
+        case .thirdEffect:
+            return UIImage(named: "13")!
+        case .fourthEffect:
+            return UIImage(named: "14")!
+        case .fifthEffect:
+            return UIImage(named: "15")!
+        case .sixthEffect:
+            return UIImage(named: "16")!
         }
     }
-    
 }
+
+
+//enum EffectType {
+//    case robustness
+//    case stilization
+//    case romantic
+//    case magical
+//    case expressive
+//    case art
+//    case disney
+//
+//}
+//
+//
+//enum Effect: CaseIterable {
+//
+//    case watercolour
+//    case arcane
+//    case artistic
+//
+//
+//    var firstType: EffectType {
+//        switch self {
+//        case .watercolour:
+//            return EffectType.robustness
+//        case .arcane:
+//            return EffectType.romantic
+//        case .artistic:
+//            return EffectType.art
+//        }
+//    }
+//    var secondType: EffectType {
+//        switch self {
+//        case .watercolour:
+//            return EffectType.stilization
+//        case .arcane:
+//            return EffectType.magical
+//        case .artistic:
+//            return EffectType.disney
+//        }
+//    }
+//    var thirdType: EffectType? {
+//        switch self {
+//        case .watercolour:
+//            return nil
+//        case .arcane:
+//            return EffectType.expressive
+//        case .artistic:
+//            return nil
+//        }
+//    }
+//    var effectPic: UIImage {
+//        switch self {
+//        case .watercolour:
+//            return UIImage(named: "1")!
+//        case .arcane:
+//            return UIImage(named: "2")!
+//        case .artistic:
+//            return UIImage(named: "3")!
+//
+//        }
+//    }
+//
+//}
 
 
 

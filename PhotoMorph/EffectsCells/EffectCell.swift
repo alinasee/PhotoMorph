@@ -16,7 +16,10 @@ class EffectCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    func setupCell(effect: Effect) {
+        effectPic.image = effect.effectPic
+       
     
 }
         
-
+}
