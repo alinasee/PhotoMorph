@@ -17,12 +17,9 @@ class PhotoVC: UIViewController {
     var sessionHash: String!
     let errorPic = UIImage(named: "errorPic")!
     
-    
-    
+    @IBOutlet weak var morphButton: UIButton!
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet weak var backImage: UIImageView!
-    @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var morphButton: UIButton!
     @IBOutlet weak var effectPicImage: UIImageView!
     @IBOutlet weak var chosenPhotoImage: UIImageView!
     override func viewDidLoad() {
@@ -33,6 +30,7 @@ class PhotoVC: UIViewController {
         backImage.layer.borderWidth = 2
         backImage.layer.borderColor = UIColor.systemGray4.cgColor
         backLabel.textColor = UIColor.systemGray
+        
 
         
     }
@@ -58,7 +56,7 @@ class PhotoVC: UIViewController {
         present(imageVC, animated: true)
     }
     @IBAction func morphAction(_ sender: Any) {
-        loadIndicator.startAnimating()
+//        loadIndicator.startAnimating()
         let prefix = "data:image/jpeg;base64,"
         let payloadVersion = "version 1 (🔺 stylization, 🔻 robustness)"
         let data = [prefix + imageBase64toSend, payloadVersion ]
@@ -77,7 +75,7 @@ class PhotoVC: UIViewController {
                             let string = receivedArray[0]
                             let beginningOfSentence = string.lastIndex(of: ",")!
                             let slycedSentence = string[string.index(beginningOfSentence, offsetBy: 1)...]
-                            self.loadIndicator.stopAnimating()
+//                            self.loadIndicator.stopAnimating()
                             let realString = String(slycedSentence)
                             let image = self.convertBase64ToImage(base64String: realString )
                             let resultVC = ResultVC(nibName: (String(describing: ResultVC.self)), bundle: nil)

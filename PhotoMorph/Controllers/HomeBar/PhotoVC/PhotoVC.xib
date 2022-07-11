@@ -14,8 +14,7 @@
                 <outlet property="backLabel" destination="vP5-7S-eJG" id="yIH-ST-W94"/>
                 <outlet property="chosenPhotoImage" destination="J3Z-A3-t0s" id="0Tb-ui-sUY"/>
                 <outlet property="effectPicImage" destination="g3X-Lv-ToJ" id="KX2-65-JtH"/>
-                <outlet property="loadIndicator" destination="7MR-sI-I7q" id="hkX-1c-aPn"/>
-                <outlet property="morphButton" destination="B8G-BU-tuk" id="iok-59-nv3"/>
+                <outlet property="morphButton" destination="B8G-BU-tuk" id="gqZ-Td-ddf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,42 +31,45 @@
                     </constraints>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZzL-LZ-kaY">
-                    <rect key="frame" x="16" y="234" width="382" height="497"/>
+                    <rect key="frame" x="16" y="234" width="382" height="472"/>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="J3Z-A3-t0s">
                     <rect key="frame" x="50" y="586" width="118" height="71"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3AE-Fp-9Ba">
-                    <rect key="frame" x="16" y="811" width="118" height="31"/>
+                    <rect key="frame" x="16" y="786" width="87" height="56"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Select a photo"/>
+                    <buttonConfiguration key="configuration" style="plain" image="photo" catalog="system" title="">
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="35"/>
+                        <color key="baseForegroundColor" systemColor="systemGrayColor"/>
+                    </buttonConfiguration>
                     <connections>
                         <action selector="selectPhotoAction:" destination="-1" eventType="touchUpInside" id="LmV-iJ-nL5"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFt-Jn-Cnw">
-                    <rect key="frame" x="291" y="811" width="107" height="31"/>
+                    <rect key="frame" x="309" y="786" width="89" height="56"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Take a photo"/>
+                    <buttonConfiguration key="configuration" style="plain" image="camera.fill" catalog="system" title="">
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="35"/>
+                        <color key="baseForegroundColor" systemColor="systemGrayColor"/>
+                    </buttonConfiguration>
                     <connections>
                         <action selector="takePhotoAction:" destination="-1" eventType="touchUpInside" id="4SI-cD-CHO"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8G-BU-tuk">
-                    <rect key="frame" x="196.5" y="811" width="78.5" height="31"/>
+                    <rect key="frame" x="145.5" y="811" width="78.5" height="31"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Morph it"/>
                     <connections>
                         <action selector="morphAction:" destination="-1" eventType="touchUpInside" id="IfS-zN-b2a"/>
                     </connections>
                 </button>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="7MR-sI-I7q">
-                    <rect key="frame" x="20" y="781" width="40" height="20"/>
-                </activityIndicatorView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СДЕЛАЙТЕ ИЛИ ВЫБЕРИТЕ ПОРТРЕТНОЕ ФОТО" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vP5-7S-eJG">
-                    <rect key="frame" x="20" y="299" width="374" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" УСТАНОВИТЕ ПОРТРЕТНОЕ ФОТО" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vP5-7S-eJG">
+                    <rect key="frame" x="20" y="299" width="374" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -76,17 +78,15 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="g3X-Lv-ToJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Amr-eZ-TSi"/>
+                <constraint firstItem="3AE-Fp-9Ba" firstAttribute="top" secondItem="ZzL-LZ-kaY" secondAttribute="bottom" constant="80" id="Bf0-MB-bco"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="g3X-Lv-ToJ" secondAttribute="trailing" constant="16" id="DAl-l2-IHh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="3AE-Fp-9Ba" secondAttribute="bottom" constant="20" id="Glu-kl-HXq"/>
-                <constraint firstItem="7MR-sI-I7q" firstAttribute="top" secondItem="ZzL-LZ-kaY" secondAttribute="bottom" constant="50" id="MGD-qt-KTD"/>
                 <constraint firstItem="g3X-Lv-ToJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="PKY-1X-HJT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="B8G-BU-tuk" secondAttribute="bottom" constant="20" id="PvE-VA-ZL5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lFt-Jn-Cnw" secondAttribute="bottom" constant="20" id="Uhd-zv-05u"/>
                 <constraint firstItem="ZzL-LZ-kaY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="VHL-Wx-ZUo"/>
-                <constraint firstItem="B8G-BU-tuk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3AE-Fp-9Ba" secondAttribute="trailing" constant="16" id="ZyU-Xl-X30"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vP5-7S-eJG" secondAttribute="trailing" constant="20" id="bRE-xi-MPb"/>
-                <constraint firstItem="lFt-Jn-Cnw" firstAttribute="leading" secondItem="B8G-BU-tuk" secondAttribute="trailing" constant="16" id="bbb-a8-vYb"/>
-                <constraint firstItem="B8G-BU-tuk" firstAttribute="top" secondItem="7MR-sI-I7q" secondAttribute="bottom" constant="10" id="cqC-g9-w4V"/>
+                <constraint firstItem="lFt-Jn-Cnw" firstAttribute="leading" secondItem="B8G-BU-tuk" secondAttribute="trailing" constant="85" id="bbb-a8-vYb"/>
                 <constraint firstItem="ZzL-LZ-kaY" firstAttribute="top" secondItem="g3X-Lv-ToJ" secondAttribute="bottom" constant="20" id="fnb-1v-ZSl"/>
                 <constraint firstItem="vP5-7S-eJG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="kRS-QV-5V5"/>
                 <constraint firstItem="3AE-Fp-9Ba" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="qo8-JE-Vcg"/>
@@ -98,8 +98,13 @@
         </view>
     </objects>
     <resources>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
+        <image name="photo" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
