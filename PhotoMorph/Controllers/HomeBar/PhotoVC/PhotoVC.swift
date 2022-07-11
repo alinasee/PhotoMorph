@@ -30,6 +30,7 @@ class PhotoVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         morphImage = nil
+        effectPicImage .layer.cornerRadius = 40
         if chosenPhotoImage.image == nil {
             morphButton.isEnabled = false
         }
@@ -49,7 +50,8 @@ class PhotoVC: UIViewController {
     @IBAction func morphAction(_ sender: Any) {
         loadIndicator.startAnimating()
         let prefix = "data:image/jpeg;base64,"
-        let data = [prefix + imageBase64toSend, "version 1 (🔺 stylization, 🔻 robustness)"]
+        let payloadVersion = "version 1 (🔺 stylization, 🔻 robustness)"
+        let data = [prefix + imageBase64toSend, payloadVersion ]
         let fnIndex = 0
         let action = "predict"
         NetworkManager.postAnimeGanV1(action: action, data: data, fnIndex: fnIndex, sessionHash: sessionHash) { responce in

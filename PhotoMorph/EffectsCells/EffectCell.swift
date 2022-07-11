@@ -9,6 +9,7 @@ import UIKit
 
 class EffectCell: UICollectionViewCell {
 
+    @IBOutlet weak var effectLabel: UILabel!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var effectPic: UIImageView!
     
@@ -18,7 +19,7 @@ class EffectCell: UICollectionViewCell {
     }
     func setupCell(effect: Effect) {
         effectPic.image = effect.effectPic
-       
+        effectLabel.text = effect.effectName       
     
 }
         

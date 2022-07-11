@@ -51,7 +51,34 @@ enum Effect: CaseIterable {
             return UIImage(named: "16")!
         }
     }
+    
+//    var payloadVersion: String {
+//        switch self {
+//        case .firstEffect:
+//            <#code#>
+//        case .secondEffect:
+//            <#code#>
+//        case .thirdEffect:
+//            <#code#>
+//        case .fourthEffect:
+//            <#code#>
+//        case .fifthEffect:
+//            <#code#>
+//        case .sixthEffect:
+//            <#code#>
+//        }
+//        
+//    }
 }
+
+
+
+
+
+
+
+
+
 
 
 //enum EffectType {

@@ -51,15 +51,5 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
         return CGSize(width: widthCell, height: heightCell )
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        let totalCellWidth = 80 * collectionView.numberOfItems(inSection: 0)
-//               let totalSpacingWidth = 10 * (collectionView.numberOfItems(inSection: 0) - 1)
-//
-//               let leftInset = (collectionView.layer.frame.size.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
-//               let rightInset = leftInset
-//
-//        return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
-//
-//    }
    
 }
