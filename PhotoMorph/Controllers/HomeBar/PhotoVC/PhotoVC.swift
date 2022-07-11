@@ -10,6 +10,7 @@ import SwiftUI
 
 class PhotoVC: UIViewController {
     
+    
     var morphImage: UIImage?
     var imageBase64toSend: String!
     var imageBase64Received: UIImage?
@@ -18,21 +19,30 @@ class PhotoVC: UIViewController {
     
     
     
+    @IBOutlet weak var backLabel: UILabel!
+    @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
     @IBOutlet weak var morphButton: UIButton!
-    @IBOutlet weak var chekLabel: UILabel!
     @IBOutlet weak var effectPicImage: UIImageView!
     @IBOutlet weak var chosenPhotoImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        effectPicImage .layer.cornerRadius = 40
+        backImage.image = UIImage(named: "placeholder-1")
+        backImage.layer.cornerRadius = 40
+        backImage.layer.borderWidth = 2
+        backImage.layer.borderColor = UIColor.systemGray4.cgColor
+        backLabel.textColor = UIColor.systemGray
+
         
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         morphImage = nil
-        effectPicImage .layer.cornerRadius = 40
         if chosenPhotoImage.image == nil {
             morphButton.isEnabled = false
+//            let neededHeight = UIScreen.main.bounds.height * 0.7
+//            chosenPhotoImage.bounds.size.height = neededHeight
         }
     }
     @IBAction func takePhotoAction(_ sender: Any) {
