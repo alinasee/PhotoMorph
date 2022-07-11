@@ -30,6 +30,10 @@ class PhotoVC: UIViewController {
         backImage.layer.borderWidth = 2
         backImage.layer.borderColor = UIColor.systemGray4.cgColor
         backLabel.textColor = UIColor.systemGray
+        morphButton.layer.cornerRadius = 8
+        chosenPhotoImage.layer.cornerRadius = 40
+        
+        
         
 
         

@@ -12,9 +12,9 @@
             <connections>
                 <outlet property="backImage" destination="ZzL-LZ-kaY" id="pht-JC-YWX"/>
                 <outlet property="backLabel" destination="vP5-7S-eJG" id="yIH-ST-W94"/>
-                <outlet property="chosenPhotoImage" destination="J3Z-A3-t0s" id="0Tb-ui-sUY"/>
+                <outlet property="chosenPhotoImage" destination="thU-ZB-cVx" id="Se1-75-fhG"/>
                 <outlet property="effectPicImage" destination="g3X-Lv-ToJ" id="KX2-65-JtH"/>
-                <outlet property="morphButton" destination="B8G-BU-tuk" id="gqZ-Td-ddf"/>
+                <outlet property="morphButton" destination="Jq6-Iv-KnL" id="gt7-64-1lh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -31,40 +31,28 @@
                     </constraints>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZzL-LZ-kaY">
-                    <rect key="frame" x="16" y="234" width="382" height="472"/>
-                </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="J3Z-A3-t0s">
-                    <rect key="frame" x="50" y="586" width="118" height="71"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="16" y="234" width="382" height="470.5"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3AE-Fp-9Ba">
-                    <rect key="frame" x="16" y="786" width="87" height="56"/>
+                    <rect key="frame" x="16" y="784.5" width="78.5" height="57.5"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="photo" catalog="system" title="">
-                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="35"/>
-                        <color key="baseForegroundColor" systemColor="systemGrayColor"/>
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="30"/>
+                        <color key="baseForegroundColor" systemColor="systemGray2Color"/>
                     </buttonConfiguration>
                     <connections>
                         <action selector="selectPhotoAction:" destination="-1" eventType="touchUpInside" id="LmV-iJ-nL5"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFt-Jn-Cnw">
-                    <rect key="frame" x="309" y="786" width="89" height="56"/>
+                    <rect key="frame" x="325.5" y="784.5" width="72.5" height="57.5"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="camera.fill" catalog="system" title="">
-                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="35"/>
-                        <color key="baseForegroundColor" systemColor="systemGrayColor"/>
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="30"/>
+                        <color key="baseForegroundColor" systemColor="systemGray2Color"/>
                     </buttonConfiguration>
                     <connections>
                         <action selector="takePhotoAction:" destination="-1" eventType="touchUpInside" id="4SI-cD-CHO"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8G-BU-tuk">
-                    <rect key="frame" x="145.5" y="811" width="78.5" height="31"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Morph it"/>
-                    <connections>
-                        <action selector="morphAction:" destination="-1" eventType="touchUpInside" id="IfS-zN-b2a"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" УСТАНОВИТЕ ПОРТРЕТНОЕ ФОТО" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vP5-7S-eJG">
@@ -73,26 +61,50 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jq6-Iv-KnL">
+                    <rect key="frame" x="114.5" y="794" width="191" height="38.5"/>
+                    <color key="backgroundColor" systemColor="separatorColor"/>
+                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="gray" title="MORPH IT!"/>
+                    <connections>
+                        <action selector="morphAction:" destination="-1" eventType="touchUpInside" id="gxU-Wn-zZ0"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="thU-ZB-cVx">
+                    <rect key="frame" x="16" y="234" width="382" height="470.5"/>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="thU-ZB-cVx" firstAttribute="top" secondItem="ZzL-LZ-kaY" secondAttribute="top" id="0s2-2C-Oo7"/>
+                <constraint firstItem="Jq6-Iv-KnL" firstAttribute="leading" secondItem="3AE-Fp-9Ba" secondAttribute="trailing" constant="20" id="7PC-V0-qap"/>
+                <constraint firstItem="3AE-Fp-9Ba" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="80K-dl-6LU"/>
                 <constraint firstItem="g3X-Lv-ToJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Amr-eZ-TSi"/>
-                <constraint firstItem="3AE-Fp-9Ba" firstAttribute="top" secondItem="ZzL-LZ-kaY" secondAttribute="bottom" constant="80" id="Bf0-MB-bco"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="g3X-Lv-ToJ" secondAttribute="trailing" constant="16" id="DAl-l2-IHh"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="3AE-Fp-9Ba" secondAttribute="bottom" constant="20" id="Glu-kl-HXq"/>
+                <constraint firstItem="thU-ZB-cVx" firstAttribute="trailing" secondItem="ZzL-LZ-kaY" secondAttribute="trailing" id="DQp-1c-wIV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lFt-Jn-Cnw" secondAttribute="trailing" constant="16" id="DZR-PB-GUu"/>
+                <constraint firstItem="Jq6-Iv-KnL" firstAttribute="top" secondItem="ZzL-LZ-kaY" secondAttribute="bottom" constant="89.5" id="Fbb-HJ-mRo"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lFt-Jn-Cnw" secondAttribute="bottom" constant="20" id="Glt-Uz-O0T"/>
+                <constraint firstItem="thU-ZB-cVx" firstAttribute="leading" secondItem="ZzL-LZ-kaY" secondAttribute="leading" id="M8l-6h-COs"/>
+                <constraint firstItem="3AE-Fp-9Ba" firstAttribute="top" secondItem="ZzL-LZ-kaY" secondAttribute="bottom" constant="80" id="PEo-Qc-VNb"/>
                 <constraint firstItem="g3X-Lv-ToJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="PKY-1X-HJT"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="B8G-BU-tuk" secondAttribute="bottom" constant="20" id="PvE-VA-ZL5"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lFt-Jn-Cnw" secondAttribute="bottom" constant="20" id="Uhd-zv-05u"/>
+                <constraint firstItem="Jq6-Iv-KnL" firstAttribute="height" secondItem="3AE-Fp-9Ba" secondAttribute="height" multiplier="0.67" id="QIh-Jv-GMG"/>
+                <constraint firstItem="thU-ZB-cVx" firstAttribute="bottom" secondItem="ZzL-LZ-kaY" secondAttribute="bottom" id="Rdd-ZC-kOe"/>
                 <constraint firstItem="ZzL-LZ-kaY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="VHL-Wx-ZUo"/>
+                <constraint firstItem="lFt-Jn-Cnw" firstAttribute="leading" secondItem="Jq6-Iv-KnL" secondAttribute="trailing" constant="20" id="akR-6R-TI6"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vP5-7S-eJG" secondAttribute="trailing" constant="20" id="bRE-xi-MPb"/>
-                <constraint firstItem="lFt-Jn-Cnw" firstAttribute="leading" secondItem="B8G-BU-tuk" secondAttribute="trailing" constant="85" id="bbb-a8-vYb"/>
                 <constraint firstItem="ZzL-LZ-kaY" firstAttribute="top" secondItem="g3X-Lv-ToJ" secondAttribute="bottom" constant="20" id="fnb-1v-ZSl"/>
                 <constraint firstItem="vP5-7S-eJG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="kRS-QV-5V5"/>
-                <constraint firstItem="3AE-Fp-9Ba" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="qo8-JE-Vcg"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lFt-Jn-Cnw" secondAttribute="trailing" constant="16" id="trF-lB-fpo"/>
+                <constraint firstItem="Jq6-Iv-KnL" firstAttribute="width" secondItem="ZzL-LZ-kaY" secondAttribute="width" multiplier="0.5" id="krG-T2-FfE"/>
+                <constraint firstItem="Jq6-Iv-KnL" firstAttribute="centerY" secondItem="lFt-Jn-Cnw" secondAttribute="centerY" id="rmy-Ne-zHX"/>
+                <constraint firstItem="Jq6-Iv-KnL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="114.5" id="tmD-De-m5u"/>
                 <constraint firstItem="vP5-7S-eJG" firstAttribute="top" secondItem="g3X-Lv-ToJ" secondAttribute="bottom" constant="85" id="tuU-UV-7lA"/>
+                <constraint firstItem="Jq6-Iv-KnL" firstAttribute="centerY" secondItem="3AE-Fp-9Ba" secondAttribute="centerY" id="vqE-3k-rMO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="3AE-Fp-9Ba" secondAttribute="bottom" constant="20" id="x2b-e1-Of0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZzL-LZ-kaY" secondAttribute="trailing" constant="16" id="xHA-mS-zwB"/>
+                <constraint firstItem="ZzL-LZ-kaY" firstAttribute="trailing" secondItem="lFt-Jn-Cnw" secondAttribute="trailing" id="zZD-ZY-ZFC"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
         </view>
@@ -100,11 +112,14 @@
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="photo" catalog="system" width="128" height="93"/>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
