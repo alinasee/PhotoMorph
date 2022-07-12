@@ -10,7 +10,7 @@ import ObjectMapper
 
 
 class PostJoJoApiModel: Mappable {
-    var data = [String]()
+    var data:[String]!
     
     required init?(map: Map) {
         mapping(map: map)

@@ -99,7 +99,7 @@ class NetworkManager {
         let fnIndex = 0
         let action = "predict"
         let data = [prefix + PhotoVC.imageBase64toSend, payloadVersion]
-        provider.request(.postJojoGan(action: action, data: data, fnIndex: fnIndex, sessionHash: sessionHash)) { result in
+        provider.request(.postJojoGan(action: action, data: data, id: nil, sessionHash: String)) { result in
             switch result {
             case .success(let response):
                 guard let responseInfo = try? response.mapObject(PostJoJoApiModel.self) else {

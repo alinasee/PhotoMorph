@@ -90,9 +90,9 @@ enum Effect: CaseIterable {
         case .fifthEffect:
             return "version 0.4"
         case .sixthEffect:
-            return "version 1 (🔺 stylization, 🔻 robustness)"
+            return "vJoJo"
         case .seventhEffect:
-            return "version 1 (🔺 stylization, 🔻 robustness)"
+            return "Disney"
         case .eighthEffect:
             return "version 1 (🔺 stylization, 🔻 robustness)"
         case .ninthffect:

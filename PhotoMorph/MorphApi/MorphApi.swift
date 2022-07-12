@@ -12,7 +12,7 @@ enum MorphApi {
     case statusAnimeGan(hash:String)
     case postArcaneGan(action: String, data: [String], fnIndex: Int, sessionHash: String)
     case statusArcaneGan(hash:String)
-    case postJojoGan(action: String, data: [String], fnIndex: Int, sessionHash: String)
+    case postJojoGan(action: String, data: [String], id: nil, sessionHash: String)
 }
 
 extension MorphApi: TargetType{
@@ -71,13 +71,18 @@ extension MorphApi: TargetType{
         var params = [String: Any]()
         
         switch self {
-        case .postAnimeGan(let action, let data, let fnIndex, let sessionHash), .postArcaneGan(let action, let data, let fnIndex, let sessionHash), .postJojoGan(let action, let data, let fnIndex, let sessionHash):
+        case .postAnimeGan(let action, let data, let fnIndex, let sessionHash), .postArcaneGan(let action, let data, let fnIndex, let sessionHash):
             params["action"] = action
             params["data"] = data
             params["fn_index"] = fnIndex
             params["session_hash"] = sessionHash
         case .statusAnimeGan(let hash),.statusArcaneGan(let hash):
             params["hash"] = hash
+        case .postJojoGan(let action, let data, let id, let sessionHash):
+            params["action"] = action
+            params["data"] = data
+            params["example_id"] = id
+            params["session_hash"] = sessionHash
         }
         return params
     }
