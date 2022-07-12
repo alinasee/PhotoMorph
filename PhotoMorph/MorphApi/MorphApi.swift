@@ -8,16 +8,11 @@ import Foundation
 import Moya
 
 enum MorphApi {
-    case postAnimeGanV1(action: String, data: [String], fnIndex: Int, sessionHash: String)
-    case statusAnimeCanV1(hash:String)
-    case postAnimeGanV2(action: String, data: [String], fnIndex: Int, sessionHash: String)
-    case statusAnimeCanV2(hash:String)
-    case postArcaneGanV1(action: String, data: [String], fnIndex: Int, sessionHash: String)
-    case statusArcaneGanV1(hash:String)
-    case postArcaneGanV2(action: String, data: [String], fnIndex: Int, sessionHash: String)
-    case statusArcaneGanV2(hash:String)
-    case postArcaneGanV3(action: String, data: [String], fnIndex: Int, sessionHash: String)
-    case statusArcaneGanV3(hash:String)
+    case postAnimeGan(action: String, data: [String], fnIndex: Int, sessionHash: String)
+    case statusAnimeGan(hash:String)
+    case postArcaneGan(action: String, data: [String], fnIndex: Int, sessionHash: String)
+    case statusArcaneGan(hash:String)
+    case postJojoGan(action: String, data: [String], fnIndex: Int, sessionHash: String)
 }
 
 extension MorphApi: TargetType{
@@ -27,20 +22,22 @@ extension MorphApi: TargetType{
     
     var path: String {
         switch self{
-        case .postAnimeGanV1, .postAnimeGanV2:
+        case .postAnimeGan:
             return "/embed/akhaliq/AnimeGANv2/api/queue/push/"
-        case.statusAnimeCanV1, .statusAnimeCanV2:
+        case.statusAnimeGan:
             return "/embed/akhaliq/AnimeGANv2/api/queue/status/"
-        case .postArcaneGanV1, .postArcaneGanV2, .postArcaneGanV3:
+        case .postArcaneGan:
             return "/embed/akhaliq/ArcaneGAN/api/queue/push/"
-        case .statusArcaneGanV1, .statusArcaneGanV2, .statusArcaneGanV3:
+        case .statusArcaneGan:
             return "/embed/akhaliq/ArcaneGAN/api/queue/status/"
+        case .postJojoGan:
+            return "/embed/akhaliq/JoJoGAN/api/predict/"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .postAnimeGanV1, .statusAnimeCanV1,.postAnimeGanV2, .statusAnimeCanV2, .postArcaneGanV1, .postArcaneGanV2, .postArcaneGanV3,.statusArcaneGanV1, .statusArcaneGanV2, .statusArcaneGanV3:
+        case .postAnimeGan, .statusAnimeGan, .postArcaneGan, .statusArcaneGan, .postJojoGan:
             return.post
         }
     }
@@ -48,7 +45,8 @@ extension MorphApi: TargetType{
     var sampleData: Data {
         return Data()
     }
-        var task: Task {
+    
+    var task: Task {
         guard let params = parameters else {
             return.requestPlain
         }
@@ -57,10 +55,10 @@ extension MorphApi: TargetType{
     
     var headers: [String : String]? {
         switch self {
-        case .postAnimeGanV1, .statusAnimeCanV1,.postAnimeGanV2, .statusAnimeCanV2, .postArcaneGanV1, .postArcaneGanV2, .postArcaneGanV3,.statusArcaneGanV1, .statusArcaneGanV2, .statusArcaneGanV3:
-        return ["content-type" : "application/json"]
+        case  .postAnimeGan, .statusAnimeGan, .postArcaneGan, .statusArcaneGan, .postJojoGan:
+            return ["content-type" : "application/json"]
         }
-}
+    }
     
     var encoding: ParameterEncoding{
         switch self {
@@ -69,21 +67,21 @@ extension MorphApi: TargetType{
         }
     }
     
-        var parameters: [String: Any]? {
-            var params = [String: Any]()
-            
-            switch self {
-            case .postAnimeGanV1(let action, let data, let fnIndex, let sessionHash), .postAnimeGanV2(let action, let data, let fnIndex, let sessionHash), .postArcaneGanV1(let action, let data, let fnIndex, let sessionHash), .postArcaneGanV2(let action, let data, let fnIndex, let sessionHash), .postArcaneGanV3(let action, let data, let fnIndex, let sessionHash):
-                params["action"] = action
-                params["data"] = data
-                params["fn_index"] = fnIndex
-                params["session_hash"] = sessionHash
-            case .statusAnimeCanV1(let hash),.statusAnimeCanV2(let hash),.statusArcaneGanV1(let hash),.statusArcaneGanV2(let hash),.statusArcaneGanV3(let hash):
-                params["hash"] = hash
-            }
-            return params
+    var parameters: [String: Any]? {
+        var params = [String: Any]()
+        
+        switch self {
+        case .postAnimeGan(let action, let data, let fnIndex, let sessionHash), .postArcaneGan(let action, let data, let fnIndex, let sessionHash), .postJojoGan(let action, let data, let fnIndex, let sessionHash):
+            params["action"] = action
+            params["data"] = data
+            params["fn_index"] = fnIndex
+            params["session_hash"] = sessionHash
+        case .statusAnimeGan(let hash),.statusArcaneGan(let hash):
+            params["hash"] = hash
         }
-//  переопределяет секцию успеха. При таком переопределении успехом будут считаться ответы сервера с кодом "200..", "300..". ответы "400.." попадут в секцию failure.
+        return params
+    }
+    
     var validationType: ValidationType {
         return .successCodes
     }

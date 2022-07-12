@@ -8,6 +8,20 @@
 import Foundation
 import ObjectMapper
 
+
+class PostJoJoApiModel: Mappable {
+    var data = [String]()
+    
+    required init?(map: Map) {
+        mapping(map: map)
+    }
+    
+    func mapping(map: Map) {
+        data              <- map ["data"]
+    }
+    
+}
+
 class PostApiResponseModel: Mappable {
     var hash: String!
     var queuePosition: Int!
@@ -52,3 +66,4 @@ class NestedServerData: Mappable {
         averageDuration  <- map ["average_duration"]
     }
 }
+

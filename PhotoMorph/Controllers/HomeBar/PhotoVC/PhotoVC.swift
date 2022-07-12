@@ -59,7 +59,7 @@ class PhotoVC: UIViewController {
     @IBAction func morphAction(_ sender: Any) {
         //        self.loadIndicator.startAnimating()
         for item in effects {
-            if effectPicImage == item.effectPic {
+            if effectPicImage.image == item.effectPic {
                 arcaneAnimeGanRequest(sessionHash: sessionHash, payloadVersion: item.payloadVersion)
                 
             }
@@ -125,9 +125,9 @@ class PhotoVC: UIViewController {
         var randomString: String = ""
         for _ in (1...11) {
             randomString.append(charactersArray[Int(arc4random()) % charactersArray.count])
-            sessionHash = randomString
+           
         }
-        
+        sessionHash = randomString
     }
     
 }

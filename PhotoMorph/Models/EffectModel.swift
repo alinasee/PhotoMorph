@@ -82,13 +82,13 @@ enum Effect: CaseIterable {
         case .firstEffect:
             return "version 1 (🔺 stylization, 🔻 robustness)"
         case .secondEffect:
-            return "version 1 (🔺 stylization, 🔻 robustness)"
+            return "version 2 (🔺 robustness,🔻 stylization)"
         case .thirdEffect:
-            return "version 1 (🔺 stylization, 🔻 robustness)"
+            return "version 0.2"
         case .fourthEffect:
-            return "version 1 (🔺 stylization, 🔻 robustness)"
+            return "version 0.3"
         case .fifthEffect:
-            return "version 1 (🔺 stylization, 🔻 robustness)"
+            return "version 0.4"
         case .sixthEffect:
             return "version 1 (🔺 stylization, 🔻 robustness)"
         case .seventhEffect:
