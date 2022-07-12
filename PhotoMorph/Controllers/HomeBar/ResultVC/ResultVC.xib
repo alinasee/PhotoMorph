@@ -19,25 +19,65 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ГОТОВО!" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyF-Pd-7Qg">
+                    <rect key="frame" x="16" y="114" width="382" height="33"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwG-m0-v2N">
+                    <rect key="frame" x="16" y="684" width="107.5" height="98"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="insta-1" title="">
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="23"/>
+                    </buttonConfiguration>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eR6-UR-YJ9">
+                    <rect key="frame" x="178.5" y="684" width="60" height="98"/>
+                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.up" catalog="system" title="">
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25"/>
+                    </buttonConfiguration>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lh-wd-03n">
+                    <rect key="frame" x="308.5" y="684" width="60" height="98"/>
+                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.down" catalog="system" title="">
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25"/>
+                    </buttonConfiguration>
+                </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c3n-VQ-k8m">
-                    <rect key="frame" x="10" y="54" width="394" height="758"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="c3n-VQ-k8m" secondAttribute="height" multiplier="197:379" id="x3g-Ru-L5E"/>
-                    </constraints>
+                    <rect key="frame" x="16" y="197" width="382" height="417"/>
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="c3n-VQ-k8m" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="BOQ-y4-Nyl"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="c3n-VQ-k8m" secondAttribute="trailing" constant="10" id="YTA-5J-1ZU"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="c3n-VQ-k8m" secondAttribute="bottom" constant="50" id="bRX-fO-fBg"/>
-                <constraint firstItem="c3n-VQ-k8m" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="kLT-60-vNJ"/>
+                <constraint firstItem="5lh-wd-03n" firstAttribute="top" secondItem="eR6-UR-YJ9" secondAttribute="top" id="1rp-Ii-aQi"/>
+                <constraint firstItem="c3n-VQ-k8m" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="1vK-zk-PwH"/>
+                <constraint firstItem="c3n-VQ-k8m" firstAttribute="top" secondItem="CyF-Pd-7Qg" secondAttribute="bottom" constant="50" id="26y-ai-X6f"/>
+                <constraint firstItem="cwG-m0-v2N" firstAttribute="top" secondItem="c3n-VQ-k8m" secondAttribute="bottom" constant="70" id="3HL-Bq-VfJ"/>
+                <constraint firstItem="eR6-UR-YJ9" firstAttribute="bottom" secondItem="cwG-m0-v2N" secondAttribute="bottom" id="81S-48-pxY"/>
+                <constraint firstItem="CyF-Pd-7Qg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Cc0-ft-AmG"/>
+                <constraint firstItem="cwG-m0-v2N" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ENa-AR-W1N"/>
+                <constraint firstItem="eR6-UR-YJ9" firstAttribute="top" secondItem="cwG-m0-v2N" secondAttribute="top" id="MU2-v8-Pr1"/>
+                <constraint firstItem="5lh-wd-03n" firstAttribute="bottom" secondItem="eR6-UR-YJ9" secondAttribute="bottom" id="NW3-Qb-8YE"/>
+                <constraint firstItem="CyF-Pd-7Qg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="70" id="Q3l-F0-SQC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cwG-m0-v2N" secondAttribute="bottom" constant="80" id="Uqs-nY-V70"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CyF-Pd-7Qg" secondAttribute="trailing" constant="16" id="VlT-kc-oWl"/>
+                <constraint firstItem="5lh-wd-03n" firstAttribute="leading" secondItem="eR6-UR-YJ9" secondAttribute="trailing" constant="70" id="kZ2-FL-s18"/>
+                <constraint firstItem="eR6-UR-YJ9" firstAttribute="leading" secondItem="cwG-m0-v2N" secondAttribute="trailing" constant="55" id="llw-Pf-kTq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="c3n-VQ-k8m" secondAttribute="trailing" constant="16" id="vQh-VH-cix"/>
             </constraints>
-            <point key="canvasLocation" x="-39" y="-11"/>
+            <point key="canvasLocation" x="-39.130434782608695" y="-11.383928571428571"/>
         </view>
     </objects>
     <resources>
+        <image name="insta-1" width="83.5" height="83.5"/>
+        <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

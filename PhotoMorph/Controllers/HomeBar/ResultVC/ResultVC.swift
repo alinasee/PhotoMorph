@@ -15,10 +15,7 @@ class ResultVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         editedView.image = image
-//        let frameRect = editedView.frame;
-//        let rectPoint = frameRect.origin;
-//        let newXPos = rectPoint.x - 0.5;
-//        editedView.frame = CGRectMake(newXPos, 0.0, editedView.frame.size.width, editedView.frame.size.height);
+
 
 
     }
