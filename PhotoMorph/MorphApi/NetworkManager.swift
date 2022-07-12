@@ -12,7 +12,8 @@ import Moya_ObjectMapper
 class NetworkManager {
     private static let provider = MoyaProvider<MorphApi>(plugins: [NetworkLoggerPlugin()])
 
-    static func postAnimeGanV1(action: String, data: [String], fnIndex: Int, sessionHash: String, success: ((PostApiResponseModel) -> ())?, failure: (() -> ())?) {
+    static func postAnimeGanV1(action: String, data: [String], fnIndex: Int, sessionHash: String, payloadVersion: String, success: ((PostApiResponseModel) -> ())?, failure: (() -> ())?) {
+        
         provider.request(.postAnimeGanV1(action: action, data: data, fnIndex: fnIndex, sessionHash: sessionHash)) { result in
             switch result {
             case .success(let response):
@@ -36,7 +37,6 @@ class NetworkManager {
             case .success(let response):
                 guard let responseInfo = try? response.mapObject(StatusApiResponseModel.self) else {
                     print("Не удалось распарсить ответ от сервера")
-                    
                     failure?()
                     return
                 }

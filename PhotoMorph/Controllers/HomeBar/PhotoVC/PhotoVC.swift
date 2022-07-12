@@ -10,7 +10,7 @@ import SwiftUI
 
 class PhotoVC: UIViewController {
     
-    
+    var effects = Effect.allCases
     var morphImage: UIImage?
     var imageBase64toSend: String!
     var imageBase64Received: UIImage?
@@ -32,21 +32,16 @@ class PhotoVC: UIViewController {
         backLabel.textColor = UIColor.systemGray
         morphButton.layer.cornerRadius = 8
         chosenPhotoImage.layer.cornerRadius = 40
-        
-        
-        
-
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         morphImage = nil
         if chosenPhotoImage.image == nil {
             morphButton.isEnabled = false
-//            let neededHeight = UIScreen.main.bounds.height * 0.7
-//            chosenPhotoImage.bounds.size.height = neededHeight
         }
     }
+    
     @IBAction func takePhotoAction(_ sender: Any) {
         
         let cameraVC = UIImagePickerController()
@@ -54,12 +49,15 @@ class PhotoVC: UIViewController {
         cameraVC.delegate = self
         present(cameraVC, animated: true)
     }
+    
     @IBAction func selectPhotoAction(_ sender: Any) {
         let imageVC = UIImagePickerController()
         imageVC.delegate = self
         present(imageVC, animated: true)
     }
+    
     @IBAction func morphAction(_ sender: Any) {
+        if effectPicImage == effects[0].effectPic {
 //        loadIndicator.startAnimating()
         let prefix = "data:image/jpeg;base64,"
         let payloadVersion = "version 1 (🔺 stylization, 🔻 robustness)"
@@ -97,14 +95,14 @@ class PhotoVC: UIViewController {
                     }
                 } else {
                     timer.invalidate()}
-                
             }
-            
         } failure: {
             print("хэш не получен")
         }
-        
-    }
+    } else if
+}
+    
+    
     
     func convertImageToBase64(){
         let imageData = morphImage?.jpegData(compressionQuality: 1)
