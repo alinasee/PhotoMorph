@@ -17,6 +17,11 @@ enum Effect: CaseIterable {
     case fourthEffect
     case fifthEffect
     case sixthEffect
+    case seventhEffect
+    case eighthEffect
+    case ninthffect
+    case tenthEffect
+    case eleventhEffect
         
     var effectName: String{
         switch self{
@@ -32,6 +37,16 @@ enum Effect: CaseIterable {
             return "fifthEffect"
         case .sixthEffect:
             return "sixthEffect"
+        case .seventhEffect:
+            return "seventhEffect"
+        case .eighthEffect:
+            return "eighthEffect"
+        case .ninthffect:
+            return "ninthffect"
+        case .tenthEffect:
+            return "tenthEffect"
+        case .eleventhEffect:
+            return "eleventhEffect"
         }
     }
         
@@ -49,26 +64,46 @@ enum Effect: CaseIterable {
             return UIImage(named: "15")!
         case .sixthEffect:
             return UIImage(named: "16")!
+        case .seventhEffect:
+            return UIImage(named: "1")!
+        case .eighthEffect:
+            return UIImage(named: "2")!
+        case .ninthffect:
+            return UIImage(named: "3")!
+        case .tenthEffect:
+            return UIImage(named: "4")!
+        case .eleventhEffect:
+            return UIImage(named: "5")!
         }
     }
     
-//    var payloadVersion: String {
-//        switch self {
-//        case .firstEffect:
-//            <#code#>
-//        case .secondEffect:
-//            <#code#>
-//        case .thirdEffect:
-//            <#code#>
-//        case .fourthEffect:
-//            <#code#>
-//        case .fifthEffect:
-//            <#code#>
-//        case .sixthEffect:
-//            <#code#>
-//        }
-//        
-//    }
+    var payloadVersion: String {
+        switch self {
+        case .firstEffect:
+            return "version 1 (🔺 stylization, 🔻 robustness)"
+        case .secondEffect:
+            return "version 1 (🔺 stylization, 🔻 robustness)"
+        case .thirdEffect:
+            return "version 1 (🔺 stylization, 🔻 robustness)"
+        case .fourthEffect:
+            return "version 1 (🔺 stylization, 🔻 robustness)"
+        case .fifthEffect:
+            return "version 1 (🔺 stylization, 🔻 robustness)"
+        case .sixthEffect:
+            return "version 1 (🔺 stylization, 🔻 robustness)"
+        case .seventhEffect:
+            return "version 1 (🔺 stylization, 🔻 robustness)"
+        case .eighthEffect:
+            return "version 1 (🔺 stylization, 🔻 robustness)"
+        case .ninthffect:
+            return "version 1 (🔺 stylization, 🔻 robustness)"
+        case .tenthEffect:
+            return "version 1 (🔺 stylization, 🔻 robustness)"
+        case .eleventhEffect:
+            return "version 1 (🔺 stylization, 🔻 robustness)"
+        }
+        
+    }
 }
 
 

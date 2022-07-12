@@ -12,8 +12,11 @@ import Moya_ObjectMapper
 class NetworkManager {
     private static let provider = MoyaProvider<MorphApi>(plugins: [NetworkLoggerPlugin()])
 
-    static func postAnimeGanV1(action: String, data: [String], fnIndex: Int, sessionHash: String, payloadVersion: String, success: ((PostApiResponseModel) -> ())?, failure: (() -> ())?) {
-        
+    static func postAnimeArcaneGan( sessionHash: String, payloadVersion: String, success: ((PostApiResponseModel) -> ())?, failure: (() -> ())?) {
+        let prefix = "data:image/jpeg;base64,"
+        let fnIndex = 0
+        let action = "predict"
+        let data = [prefix + PhotoVC.imageBase64toSend, payloadVersion]
         provider.request(.postAnimeGanV1(action: action, data: data, fnIndex: fnIndex, sessionHash: sessionHash)) { result in
             switch result {
             case .success(let response):
@@ -31,7 +34,7 @@ class NetworkManager {
         }
     }
     
-    static func statusAnimeGanV1(hash: String, success: ((StatusApiResponseModel) -> ())?, failure: (() -> ())?) {
+    static func statusAnimeArcaneGan(hash: String, success: ((StatusApiResponseModel) -> ())?, failure: (() -> ())?) {
         provider.request(.statusAnimeCanV1(hash: hash)) { result in
             switch result {
             case .success(let response):

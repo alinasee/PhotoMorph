@@ -12,7 +12,7 @@ class PhotoVC: UIViewController {
     
     var effects = Effect.allCases
     var morphImage: UIImage?
-    var imageBase64toSend: String!
+    static var imageBase64toSend: String!
     var imageBase64Received: UIImage?
     var sessionHash: String!
     let errorPic = UIImage(named: "errorPic")!
@@ -57,20 +57,15 @@ class PhotoVC: UIViewController {
     }
     
     @IBAction func morphAction(_ sender: Any) {
+//        self.loadIndicator.startAnimating()
         if effectPicImage == effects[0].effectPic {
-//        loadIndicator.startAnimating()
-        let prefix = "data:image/jpeg;base64,"
-        let payloadVersion = "version 1 (🔺 stylization, 🔻 robustness)"
-        let data = [prefix + imageBase64toSend, payloadVersion ]
-        let fnIndex = 0
-        let action = "predict"
-        NetworkManager.postAnimeGanV1(action: action, data: data, fnIndex: fnIndex, sessionHash: sessionHash) { responce in
+            NetworkManager.postAnimeArcaneGan( sessionHash: sessionHash, payloadVersion: effects[0].payloadVersion) { responce in
             guard let hash  = responce.hash else { return }
             print("хэш получен \(hash)")
             var counter = 0
             Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { timer in
                 if counter <= 5 {
-                    NetworkManager.statusAnimeGanV1(hash: hash) { statusResponse in
+                    NetworkManager.statusAnimeArcaneGan (hash: hash) { statusResponse in
                         if statusResponse.status == "COMPLETE" {
                             timer.invalidate()
                             guard let receivedArray = statusResponse.data?.data else { return }
@@ -106,8 +101,8 @@ class PhotoVC: UIViewController {
     
     func convertImageToBase64(){
         let imageData = morphImage?.jpegData(compressionQuality: 1)
-        imageBase64toSend = imageData?.base64EncodedString()
-        print( imageBase64toSend ?? "Could not encode image to Base64")
+        PhotoVC.imageBase64toSend = imageData?.base64EncodedString()
+        print( PhotoVC.imageBase64toSend ?? "Could not encode image to Base64")
     }
     
     func convertBase64ToImage(base64String: String) -> UIImage {
