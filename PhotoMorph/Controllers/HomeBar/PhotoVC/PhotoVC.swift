@@ -57,9 +57,17 @@ class PhotoVC: UIViewController {
     }
     
     @IBAction func morphAction(_ sender: Any) {
-//        self.loadIndicator.startAnimating()
-        if effectPicImage == effects[0].effectPic {
-            NetworkManager.postAnimeArcaneGan( sessionHash: sessionHash, payloadVersion: effects[0].payloadVersion) { responce in
+        //        self.loadIndicator.startAnimating()
+        for item in effects {
+            if effectPicImage == item.effectPic {
+                arcaneAnimeGanRequest(sessionHash: sessionHash, payloadVersion: item.payloadVersion)
+                
+            }
+        }
+    }
+    
+    func arcaneAnimeGanRequest(sessionHash: String, payloadVersion: String) {
+        NetworkManager.postAnimeArcaneGan( sessionHash: sessionHash, payloadVersion: payloadVersion) { responce in
             guard let hash  = responce.hash else { return }
             print("хэш получен \(hash)")
             var counter = 0
@@ -72,7 +80,7 @@ class PhotoVC: UIViewController {
                             let string = receivedArray[0]
                             let beginningOfSentence = string.lastIndex(of: ",")!
                             let slycedSentence = string[string.index(beginningOfSentence, offsetBy: 1)...]
-//                            self.loadIndicator.stopAnimating()
+                            //                            self.loadIndicator.stopAnimating()
                             let realString = String(slycedSentence)
                             let image = self.convertBase64ToImage(base64String: realString )
                             let resultVC = ResultVC(nibName: (String(describing: ResultVC.self)), bundle: nil)
@@ -94,9 +102,7 @@ class PhotoVC: UIViewController {
         } failure: {
             print("хэш не получен")
         }
-    } else if
-}
-    
+    }
     
     
     func convertImageToBase64(){
