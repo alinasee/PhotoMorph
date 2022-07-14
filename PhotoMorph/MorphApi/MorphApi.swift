@@ -12,7 +12,7 @@ enum MorphApi {
     case statusAnimeGan(hash:String)
     case postArcaneGan(action: String, data: [String], fnIndex: Int, sessionHash: String)
     case statusArcaneGan(hash:String)
-    case postJojoGan(action: String, data: [String], id: nil, sessionHash: String)
+    case postJojoGan(action: String, data: [String], id: NSNull, sessionHash: String)
 }
 
 extension MorphApi: TargetType{

@@ -31,6 +31,9 @@
                     <buttonConfiguration key="configuration" style="plain" image="insta-1" title="">
                         <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="23"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="openInInstaStoryAction:" destination="-1" eventType="touchUpInside" id="Pu7-ZI-NDx"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eR6-UR-YJ9">
                     <rect key="frame" x="178.5" y="684" width="60" height="98"/>
@@ -39,6 +42,9 @@
                     <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.up" catalog="system" title="">
                         <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="shareAction:" destination="-1" eventType="touchUpInside" id="RRI-ex-i8l"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lh-wd-03n">
                     <rect key="frame" x="308.5" y="684" width="60" height="98"/>
@@ -47,6 +53,9 @@
                     <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.down" catalog="system" title="">
                         <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="saveToGalleryAction:" destination="-1" eventType="touchUpInside" id="r1i-nA-6rz"/>
+                    </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c3n-VQ-k8m">
                     <rect key="frame" x="16" y="197" width="382" height="417"/>

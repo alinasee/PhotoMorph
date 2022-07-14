@@ -96,10 +96,10 @@ class NetworkManager {
     
     static func postJojoGan( sessionHash: String, payloadVersion: String, success: ((PostJoJoApiModel) -> ())?, failure: (() -> ())?) {
         let prefix = "data:image/jpeg;base64,"
-        let fnIndex = 0
         let action = "predict"
         let data = [prefix + PhotoVC.imageBase64toSend, payloadVersion]
-        provider.request(.postJojoGan(action: action, data: data, id: nil, sessionHash: String)) { result in
+        let id = NSNull()
+        provider.request(.postJojoGan(action: action, data: data, id: id, sessionHash: sessionHash)) { result in
             switch result {
             case .success(let response):
                 guard let responseInfo = try? response.mapObject(PostJoJoApiModel.self) else {

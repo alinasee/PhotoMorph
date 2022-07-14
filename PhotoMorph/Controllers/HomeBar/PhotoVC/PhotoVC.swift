@@ -69,17 +69,17 @@ class PhotoVC: UIViewController {
             } else if effectPicImage.image == effects[4].effectPic {
                 arcaneGanRequest(sessionHash: sessionHash, payloadVersion: effects[4].payloadVersion)
             } else if effectPicImage.image == effects[5].effectPic {
-                animeGanRequest(sessionHash: sessionHash, payloadVersion: effects[5].payloadVersion)
+                jojoGanRequest(sessionHash: sessionHash, payloadVersion: effects[5].payloadVersion)
             } else if effectPicImage.image == effects[6].effectPic {
-                animeGanRequest(sessionHash: sessionHash, payloadVersion: effects[6].payloadVersion)
+                jojoGanRequest(sessionHash: sessionHash, payloadVersion: effects[6].payloadVersion)
             } else if effectPicImage.image == effects[7].effectPic {
-                animeGanRequest(sessionHash: sessionHash, payloadVersion: effects[7].payloadVersion)
+                jojoGanRequest(sessionHash: sessionHash, payloadVersion: effects[7].payloadVersion)
             } else if effectPicImage.image == effects[8].effectPic {
-                animeGanRequest(sessionHash: sessionHash, payloadVersion: effects[8].payloadVersion)
+                jojoGanRequest(sessionHash: sessionHash, payloadVersion: effects[8].payloadVersion)
             } else if effectPicImage.image == effects[9].effectPic {
-                animeGanRequest(sessionHash: sessionHash, payloadVersion: effects[9].payloadVersion)
+                jojoGanRequest(sessionHash: sessionHash, payloadVersion: effects[9].payloadVersion)
             } else if effectPicImage.image == effects[10].effectPic {
-                animeGanRequest(sessionHash: sessionHash, payloadVersion: effects[10].payloadVersion)
+                jojoGanRequest(sessionHash: sessionHash, payloadVersion: effects[10].payloadVersion)
             }
         
         }
@@ -87,7 +87,7 @@ class PhotoVC: UIViewController {
     func animeGanRequest(sessionHash: String, payloadVersion: String) {
         NetworkManager.postAnimeGan (sessionHash: sessionHash, payloadVersion: payloadVersion) { responce in
             guard let hash  = responce.hash else { return }
-            print("хэш получен \(hash)")
+//            print("хэш получен \(hash)")
             var counter = 0
             Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { timer in
                 if counter <= 5 {
