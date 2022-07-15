@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoVC" customModule="PhotoMorph" customModuleProvider="target">
             <connections>
+                <outlet property="activityRing" destination="LSQ-uQ-T7m" id="E1n-pv-SlX"/>
                 <outlet property="backImage" destination="ZzL-LZ-kaY" id="pht-JC-YWX"/>
                 <outlet property="backLabel" destination="vP5-7S-eJG" id="yIH-ST-W94"/>
                 <outlet property="chosenPhotoImage" destination="thU-ZB-cVx" id="Se1-75-fhG"/>
@@ -74,6 +75,9 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="thU-ZB-cVx">
                     <rect key="frame" x="16" y="234" width="382" height="470.5"/>
                 </imageView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="LSQ-uQ-T7m">
+                    <rect key="frame" x="174" y="722" width="72" height="55"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -81,12 +85,16 @@
                 <constraint firstItem="thU-ZB-cVx" firstAttribute="top" secondItem="ZzL-LZ-kaY" secondAttribute="top" id="0s2-2C-Oo7"/>
                 <constraint firstItem="Jq6-Iv-KnL" firstAttribute="leading" secondItem="3AE-Fp-9Ba" secondAttribute="trailing" constant="20" id="7PC-V0-qap"/>
                 <constraint firstItem="3AE-Fp-9Ba" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="80K-dl-6LU"/>
+                <constraint firstItem="LSQ-uQ-T7m" firstAttribute="top" secondItem="thU-ZB-cVx" secondAttribute="bottom" constant="17.5" id="8Hh-Sk-vKP"/>
+                <constraint firstItem="Jq6-Iv-KnL" firstAttribute="top" secondItem="LSQ-uQ-T7m" secondAttribute="bottom" constant="17" id="9hk-hx-gP2"/>
                 <constraint firstItem="g3X-Lv-ToJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Amr-eZ-TSi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="g3X-Lv-ToJ" secondAttribute="trailing" constant="16" id="DAl-l2-IHh"/>
+                <constraint firstItem="LSQ-uQ-T7m" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="174" id="DG4-N9-H2J"/>
                 <constraint firstItem="thU-ZB-cVx" firstAttribute="trailing" secondItem="ZzL-LZ-kaY" secondAttribute="trailing" id="DQp-1c-wIV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lFt-Jn-Cnw" secondAttribute="trailing" constant="16" id="DZR-PB-GUu"/>
                 <constraint firstItem="Jq6-Iv-KnL" firstAttribute="top" secondItem="ZzL-LZ-kaY" secondAttribute="bottom" constant="89.5" id="Fbb-HJ-mRo"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lFt-Jn-Cnw" secondAttribute="bottom" constant="20" id="Glt-Uz-O0T"/>
+                <constraint firstItem="LSQ-uQ-T7m" firstAttribute="centerX" secondItem="Jq6-Iv-KnL" secondAttribute="centerX" id="HdL-MJ-HsS"/>
                 <constraint firstItem="thU-ZB-cVx" firstAttribute="leading" secondItem="ZzL-LZ-kaY" secondAttribute="leading" id="M8l-6h-COs"/>
                 <constraint firstItem="3AE-Fp-9Ba" firstAttribute="top" secondItem="ZzL-LZ-kaY" secondAttribute="bottom" constant="80" id="PEo-Qc-VNb"/>
                 <constraint firstItem="g3X-Lv-ToJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="PKY-1X-HJT"/>

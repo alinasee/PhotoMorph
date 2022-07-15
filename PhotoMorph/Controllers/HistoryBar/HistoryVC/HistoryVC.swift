@@ -21,8 +21,14 @@ class HistoryVC: UIViewController {
         tableView.reloadData()
 
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        historyImages = RealmManager.read()
+        tableView.reloadData()
+    }
 }
+
+
 
 extension HistoryVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

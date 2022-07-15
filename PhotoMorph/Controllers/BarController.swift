@@ -8,7 +8,7 @@
 import UIKit
 
 class BarController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       settupControllers()
@@ -16,6 +16,7 @@ class BarController: UITabBarController {
     }
     
     private func settupControllers() {
+        
         let homeVC = HomeVC(nibName: String(describing: HomeVC.self), bundle: nil)
         let historyVC = HistoryVC(nibName: String(describing: HistoryVC.self), bundle: nil)
         

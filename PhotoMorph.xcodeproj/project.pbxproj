@@ -22,8 +22,6 @@
 		84A2484A28591A95007EED94 /* HistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A2484828591A95007EED94 /* HistoryVC.xib */; };
 		84A2485028591B5B007EED94 /* PhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2484E28591B5B007EED94 /* PhotoVC.swift */; };
 		84A2485128591B5B007EED94 /* PhotoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A2484F28591B5B007EED94 /* PhotoVC.xib */; };
-		84A2485628591B8C007EED94 /* ComputingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2485428591B8C007EED94 /* ComputingVC.swift */; };
-		84A2485728591B8C007EED94 /* ComputingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A2485528591B8C007EED94 /* ComputingVC.xib */; };
 		84A2486028591C0B007EED94 /* SavedPicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2485E28591C0B007EED94 /* SavedPicVC.swift */; };
 		84A2486128591C0B007EED94 /* SavedPicVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A2485F28591C0B007EED94 /* SavedPicVC.xib */; };
 		84A248662860AD4E007EED94 /* ResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A248642860AD4E007EED94 /* ResultVC.swift */; };
@@ -59,8 +57,6 @@
 		84A2484828591A95007EED94 /* HistoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryVC.xib; sourceTree = "<group>"; };
 		84A2484E28591B5B007EED94 /* PhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoVC.swift; sourceTree = "<group>"; };
 		84A2484F28591B5B007EED94 /* PhotoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoVC.xib; sourceTree = "<group>"; };
-		84A2485428591B8C007EED94 /* ComputingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputingVC.swift; sourceTree = "<group>"; };
-		84A2485528591B8C007EED94 /* ComputingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComputingVC.xib; sourceTree = "<group>"; };
 		84A2485E28591C0B007EED94 /* SavedPicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPicVC.swift; sourceTree = "<group>"; };
 		84A2485F28591C0B007EED94 /* SavedPicVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedPicVC.xib; sourceTree = "<group>"; };
 		84A248642860AD4E007EED94 /* ResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVC.swift; sourceTree = "<group>"; };
@@ -152,6 +148,7 @@
 		84A248292859199D007EED94 /* PhotoMorph */ = {
 			isa = PBXGroup;
 			children = (
+				8483B5042881752B005F834C /* Manager */,
 				84A248972871ACF4007EED94 /* MorphApi */,
 				84A248722860BD1C007EED94 /* Models */,
 				84A2486D2860B1A6007EED94 /* EffectsCells */,
@@ -191,7 +188,6 @@
 			children = (
 				84A248682860ADE3007EED94 /* HomeVC */,
 				84A2484D28591B17007EED94 /* PhotoVC */,
-				84A2485228591B62007EED94 /* ComputingVC */,
 				84A248622860AD00007EED94 /* ResultVC */,
 			);
 			path = HomeBar;
@@ -213,15 +209,6 @@
 				84A2484F28591B5B007EED94 /* PhotoVC.xib */,
 			);
 			path = PhotoVC;
-			sourceTree = "<group>";
-		};
-		84A2485228591B62007EED94 /* ComputingVC */ = {
-			isa = PBXGroup;
-			children = (
-				84A2485428591B8C007EED94 /* ComputingVC.swift */,
-				84A2485528591B8C007EED94 /* ComputingVC.xib */,
-			);
-			path = ComputingVC;
 			sourceTree = "<group>";
 		};
 		84A2485D28591BE6007EED94 /* SavedPicVC */ = {
@@ -273,7 +260,6 @@
 		84A248972871ACF4007EED94 /* MorphApi */ = {
 			isa = PBXGroup;
 			children = (
-				8483B5042881752B005F834C /* Manager */,
 				84A248982871AD4C007EED94 /* MorphApi.swift */,
 				84A2489A2871AD66007EED94 /* NetworkManager.swift */,
 			);
@@ -342,7 +328,6 @@
 			files = (
 				84A248712860B21F007EED94 /* EffectCell.xib in Resources */,
 				84A248372859199F007EED94 /* LaunchScreen.storyboard in Resources */,
-				84A2485728591B8C007EED94 /* ComputingVC.xib in Resources */,
 				8483B50C2881935B005F834C /* HistoryCell.xib in Resources */,
 				84A2486128591C0B007EED94 /* SavedPicVC.xib in Resources */,
 				84A2484A28591A95007EED94 /* HistoryVC.xib in Resources */,
@@ -407,7 +392,6 @@
 				84A2486B2860ADF6007EED94 /* HomeVC.swift in Sources */,
 				84A2484928591A95007EED94 /* HistoryVC.swift in Sources */,
 				84D7C0F4287588D700AF33FA /* PostApiResponse.swift in Sources */,
-				84A2485628591B8C007EED94 /* ComputingVC.swift in Sources */,
 				8483B5032881684E005F834C /* SavedImages.swift in Sources */,
 				8483B5062881754A005F834C /* RealmManager.swift in Sources */,
 				84A2482B2859199D007EED94 /* AppDelegate.swift in Sources */,

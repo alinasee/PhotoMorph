@@ -17,6 +17,8 @@ class PhotoVC: UIViewController {
     var sessionHash: String!
     let errorPic = UIImage(named: "errorPic")!
     
+
+    @IBOutlet weak var activityRing: UIActivityIndicatorView!
     @IBOutlet weak var morphButton: UIButton!
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet weak var backImage: UIImageView!
@@ -57,7 +59,7 @@ class PhotoVC: UIViewController {
     }
     
     @IBAction func morphAction(_ sender: Any) {
-        //        self.loadIndicator.startAnimating()
+        activityRing.startAnimating()
         if effectPicImage.image == effects[0].effectPic {
                 animeGanRequest(sessionHash: sessionHash, payloadVersion: effects[0].payloadVersion)
             } else if effectPicImage.image == effects[1].effectPic {
@@ -98,7 +100,7 @@ class PhotoVC: UIViewController {
                             let string = receivedArray[0]
                             let beginningOfSentence = string.lastIndex(of: ",")!
                             let slycedSentence = string[string.index(beginningOfSentence, offsetBy: 1)...]
-                            //                            self.loadIndicator.stopAnimating()
+                                                        self.activityRing.stopAnimating()
                             let realString = String(slycedSentence)
                             let image = self.convertBase64ToImage(base64String: realString )
                             let resultVC = ResultVC(nibName: (String(describing: ResultVC.self)), bundle: nil)
