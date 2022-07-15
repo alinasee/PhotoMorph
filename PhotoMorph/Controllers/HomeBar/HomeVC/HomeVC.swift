@@ -19,6 +19,7 @@ class HomeVC: UIViewController {
         effectsCollectionView.delegate = self
     }
     
+    
 }
 
 extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {

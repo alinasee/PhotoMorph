@@ -15,8 +15,24 @@ class ResultVC: UIViewController {
     @IBOutlet weak var editedView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        editedView.image = image
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        editedView.image = image
+        guard let imageToSave  = image,
+              let  jpedData = imageToSave.jpegData(compressionQuality: 1)
+        else { return }
+        
+        let data = NSData(data: jpedData)
+        let savedImage = SavedImage()
+        savedImage.imageData = data
+        RealmManager.save(object: savedImage)
+        let historyVC = HistoryVC(nibName: String(describing: HistoryVC.self), bundle: nil)
+        navigationController?.pushViewController(historyVC, animated: true)
+        }
+    
+
     @IBAction func saveToGalleryAction(_ sender: Any) {
         guard let image = editedView.image else { return }
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveImage(_:didFinishSavingWithError:contextInfo:)), nil)

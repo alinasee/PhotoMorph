@@ -9,21 +9,32 @@ import UIKit
 
 class HistoryVC: UIViewController {
 
+    var historyImages = [SavedImage]()
+
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
+        let nibCell = UINib(nibName: String(describing: HistoryCell.self), bundle: nil)
+        tableView.register(nibCell, forCellReuseIdentifier: String(describing: HistoryCell.self))
+        tableView.reloadData()
 
-        // Do any additional setup after loading the view.
     }
 
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension HistoryVC: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        historyImages.count
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: HistoryCell.self), for: indexPath) as! HistoryCell
+        cell.savedImage = historyImages[indexPath.row]
+        return cell
+    }
+    
+    
+    
 }
