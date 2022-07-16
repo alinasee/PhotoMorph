@@ -37,10 +37,18 @@ extension HistoryVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: HistoryCell.self), for: indexPath) as! HistoryCell
-        cell.savedImage = historyImages[indexPath.row]
+        cell.setupCell(savedImage: historyImages[indexPath.row])
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let savedPicVC = SavedPicVC(nibName: String(describing: SavedPicVC.self), bundle: nil)
+        present(savedPicVC, animated: true)
+        let imageData = historyImages[indexPath.row].imageData
+        guard let image = UIImage(data: imageData) else { return }
+        savedPicVC.image = image
+        
+        
+    }
     
     
 }

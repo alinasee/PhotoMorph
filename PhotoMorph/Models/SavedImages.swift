@@ -9,6 +9,6 @@ import Foundation
 import RealmSwift
 
 @objc final class SavedImage: Object {
-    @objc dynamic var imageData = NSData()
-   
+    @objc dynamic var imageData = Data()
+    @objc dynamic var time = Date()
 }

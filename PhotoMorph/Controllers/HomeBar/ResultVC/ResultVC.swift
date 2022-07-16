@@ -20,14 +20,12 @@ class ResultVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        editedView.image = image
-        guard let imageToSave  = image,
-              let  jpedData = imageToSave.jpegData(compressionQuality: 1)
-        else { return }
-        
-        let data = NSData(data: jpedData)
+        guard let pic = image else { return }
+        editedView.image = pic
+        let imageData = pic.jpegData(compressionQuality: 1)
         let savedImage = SavedImage()
-        savedImage.imageData = data
+        savedImage.imageData = imageData!
+        savedImage.time = Date()
         RealmManager.save(object: savedImage)
         
     }

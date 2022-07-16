@@ -9,29 +9,25 @@ import UIKit
 
 class HistoryCell: UITableViewCell {
     
-    var savedImage = SavedImage()
-
-    @IBOutlet weak var chekLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var savedPicImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        
        
     }
-    func setupCell(savedImages: SavedImage){
+    func setupCell(savedImage: SavedImage){
         let imageData = savedImage.imageData
-        
-        let image: UIImage = UIImage(data: imageData as Data, scale:1.0)!
+        guard let image = UIImage(data: imageData) else { return }
         savedPicImage.image = image
-        
-        
-        
-//        let imageData = savedImages.imageData
-//        
-//        let image = UIImage(data: imageData as Data, scale: 1)
-//        
-//        
-//        savedPicImage.image = image
-        
+        let time = savedImage.time
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let stringDate = dateFormatter.string(from: time)
+        timeLabel.text = stringDate
+        savedPicImage.layer.cornerRadius = 40
+        timeLabel.textColor = UIColor.darkGray
+
     }
 
 }
