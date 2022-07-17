@@ -23,7 +23,8 @@ class HistoryVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        historyImages = RealmManager.read()
+        historyImages = RealmManager.read().reversed()
+        
         tableView.reloadData()
     }
 }

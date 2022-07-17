@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 
 class PhotoVC: UIViewController {
-    
+
     var effects = Effect.allCases
     var morphImage: UIImage?
     static var imageBase64toSend: String!
@@ -17,7 +17,6 @@ class PhotoVC: UIViewController {
     var sessionHash: String!
     let errorPic = UIImage(named: "errorPic")!
     
-
     @IBOutlet weak var activityRing: UIActivityIndicatorView!
     @IBOutlet weak var morphButton: UIButton!
     @IBOutlet weak var backLabel: UILabel!
@@ -59,43 +58,41 @@ class PhotoVC: UIViewController {
     }
     
     @IBAction func morphAction(_ sender: Any) {
-        activityRing.startAnimating()
+        self.activityRing.startAnimating()
         if effectPicImage.image == effects[0].effectPic {
-                animeGanRequest(sessionHash: sessionHash, payloadVersion: effects[0].payloadVersion)
-            } else if effectPicImage.image == effects[1].effectPic {
-                animeGanRequest(sessionHash: sessionHash, payloadVersion: effects[1].payloadVersion)
-            } else if effectPicImage.image == effects[2].effectPic {
-                arcaneGanRequest(sessionHash: sessionHash, payloadVersion: effects[2].payloadVersion)
-            } else if effectPicImage.image == effects[3].effectPic {
-                arcaneGanRequest(sessionHash: sessionHash, payloadVersion: effects[3].payloadVersion)
-            } else if effectPicImage.image == effects[4].effectPic {
-                arcaneGanRequest(sessionHash: sessionHash, payloadVersion: effects[4].payloadVersion)
-            } else if effectPicImage.image == effects[5].effectPic {
-                jojoGanRequest(sessionHash: sessionHash, payloadVersion: effects[5].payloadVersion)
-            } else if effectPicImage.image == effects[6].effectPic {
-                jojoGanRequest(sessionHash: sessionHash, payloadVersion: effects[6].payloadVersion)
-            } else if effectPicImage.image == effects[7].effectPic {
-                jojoGanRequest(sessionHash: sessionHash, payloadVersion: effects[7].payloadVersion)
-            } else if effectPicImage.image == effects[8].effectPic {
-                jojoGanRequest(sessionHash: sessionHash, payloadVersion: effects[8].payloadVersion)
-            } else if effectPicImage.image == effects[9].effectPic {
-                jojoGanRequest(sessionHash: sessionHash, payloadVersion: effects[9].payloadVersion)
-            } else if effectPicImage.image == effects[10].effectPic {
-                jojoGanRequest(sessionHash: sessionHash, payloadVersion: effects[10].payloadVersion)
-            }
-        
+            animeGanRequest(sessionHash: sessionHash, payloadVersion: effects[0].payloadVersion)
+        } else if effectPicImage.image == effects[1].effectPic {
+            animeGanRequest(sessionHash: sessionHash, payloadVersion: effects[1].payloadVersion)
+        } else if effectPicImage.image == effects[2].effectPic {
+            arcaneGanRequest(sessionHash: sessionHash, payloadVersion: effects[2].payloadVersion)
+        } else if effectPicImage.image == effects[3].effectPic {
+            arcaneGanRequest(sessionHash: sessionHash, payloadVersion: effects[3].payloadVersion)
+        } else if effectPicImage.image == effects[4].effectPic {
+            arcaneGanRequest(sessionHash: sessionHash, payloadVersion: effects[4].payloadVersion)
+        } else if effectPicImage.image == effects[5].effectPic {
+            jojoGanRequest(sessionHash: sessionHash, payloadVersion: effects[5].payloadVersion)
+        } else if effectPicImage.image == effects[6].effectPic {
+            jojoGanRequest(sessionHash: sessionHash, payloadVersion: effects[6].payloadVersion)
+        } else if effectPicImage.image == effects[7].effectPic {
+            jojoGanRequest(sessionHash: sessionHash, payloadVersion: effects[7].payloadVersion)
+        } else if effectPicImage.image == effects[8].effectPic {
+            jojoGanRequest(sessionHash: sessionHash, payloadVersion: effects[8].payloadVersion)
+        } else if effectPicImage.image == effects[9].effectPic {
+            jojoGanRequest(sessionHash: sessionHash, payloadVersion: effects[9].payloadVersion)
+        } else if effectPicImage.image == effects[10].effectPic {
+            jojoGanRequest(sessionHash: sessionHash, payloadVersion: effects[10].payloadVersion)
         }
+    }
     
     func animeGanRequest(sessionHash: String, payloadVersion: String) {
         NetworkManager.postAnimeGan (sessionHash: sessionHash, payloadVersion: payloadVersion) { responce in
             guard let hash  = responce.hash else { return }
-//            print("хэш получен \(hash)")
             var counter = 0
             Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { timer in
-                if counter <= 5 {
-                    NetworkManager.statusAnimeGan (hash: hash) { statusResponse in
+                if counter <= 10 {
+                    NetworkManager.statusAnimeGan (hash: hash) { [self] statusResponse in
                         if statusResponse.status == "COMPLETE" {
-//                            self.activityRing.stopAnimating()
+                            self.activityRing.stopAnimating()
                             timer.invalidate()
                             guard let receivedArray = statusResponse.data?.data else { return }
                             let string = receivedArray[0]
@@ -111,7 +108,6 @@ class PhotoVC: UIViewController {
                             let okAction = UIAlertAction(title: "OK", style: .default)
                             alert.addAction(okAction)
                             self.present(alert, animated: true)
-                            self.activityRing.stopAnimating()
                         }
                     } failure: {
                         print("все плохо")
@@ -128,18 +124,17 @@ class PhotoVC: UIViewController {
     func arcaneGanRequest(sessionHash: String, payloadVersion: String) {
         NetworkManager.postArcaneGan (sessionHash: sessionHash, payloadVersion: payloadVersion) { responce in
             guard let hash  = responce.hash else { return }
-            print("хэш получен \(hash)")
             var counter = 0
             Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { timer in
                 if counter <= 5 {
                     NetworkManager.statusArcaneGan (hash: hash) { statusResponse in
                         if statusResponse.status == "COMPLETE" {
+                            self.activityRing.stopAnimating()
                             timer.invalidate()
                             guard let receivedArray = statusResponse.data?.data else { return }
                             let string = receivedArray[0]
                             let beginningOfSentence = string.lastIndex(of: ",")!
                             let slycedSentence = string[string.index(beginningOfSentence, offsetBy: 1)...]
-                            //                            self.loadIndicator.stopAnimating()
                             let realString = String(slycedSentence)
                             let image = self.convertBase64ToImage(base64String: realString )
                             let resultVC = ResultVC(nibName: (String(describing: ResultVC.self)), bundle: nil)
@@ -149,7 +144,6 @@ class PhotoVC: UIViewController {
                             let alert  = UIAlertController(title: nil, message: "Проблемы с сервером, попробуйте еще раз", preferredStyle: .alert)
                             let okAction = UIAlertAction(title: "OK", style: .default)
                             alert.addAction(okAction)
-                            self.present(alert, animated: true)
                         }
                     } failure: {
                         print("все плохо")
@@ -164,25 +158,23 @@ class PhotoVC: UIViewController {
     }
     
     func jojoGanRequest(sessionHash: String, payloadVersion: String) {
+        
         NetworkManager.postJojoGan(sessionHash: sessionHash, payloadVersion: payloadVersion) { response in
             guard let receivedArray = response.data else { return }
-            print("хэш получен \(receivedArray)")
+            self.activityRing.stopAnimating()
             let string = receivedArray[0]
             let beginningOfSentence = string.lastIndex(of: ",")!
             let slycedSentence = string[string.index(beginningOfSentence, offsetBy: 1)...]
-            //                            self.loadIndicator.stopAnimating()
             let realString = String(slycedSentence)
             let image = self.convertBase64ToImage(base64String: realString )
             let resultVC = ResultVC(nibName: (String(describing: ResultVC.self)), bundle: nil)
             resultVC.image = image
             self.present(resultVC, animated: true)
+            
         } failure: {
             print("ответ не получен")
         }
-
     }
-
-    
     
     func convertImageToBase64(){
         let imageData = morphImage?.jpegData(compressionQuality: 1)
@@ -204,16 +196,14 @@ class PhotoVC: UIViewController {
         var randomString: String = ""
         for _ in (1...11) {
             randomString.append(charactersArray[Int(arc4random()) % charactersArray.count])
-           
         }
         sessionHash = randomString
     }
-    
 }
 
 extension PhotoVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerOriginalImage")] as? UIImage {
             chosenPhotoImage.image = image
             morphImage = image
@@ -222,9 +212,7 @@ extension PhotoVC: UIImagePickerControllerDelegate, UINavigationControllerDelega
             if chosenPhotoImage.image != nil {
                 morphButton.isEnabled = true
             }
-            
         }
-        
         picker.dismiss(animated: true)
     }
 }
