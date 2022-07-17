@@ -53,27 +53,27 @@ enum Effect: CaseIterable {
     var effectPic: UIImage {
         switch self {
         case .firstEffect:
-            return UIImage(named: "11")!
+            return UIImage(named: "ef1")!
         case .secondEffect:
-            return UIImage(named: "12")!
+            return UIImage(named: "ef2")!
         case .thirdEffect:
-            return UIImage(named: "13")!
+            return UIImage(named: "ef3")!
         case .fourthEffect:
-            return UIImage(named: "14")!
+            return UIImage(named: "ef4")!
         case .fifthEffect:
-            return UIImage(named: "15")!
+            return UIImage(named: "ef5")!
         case .sixthEffect:
-            return UIImage(named: "16")!
+            return UIImage(named: "ef6")!
         case .seventhEffect:
-            return UIImage(named: "1")!
+            return UIImage(named: "ef7")!
         case .eighthEffect:
-            return UIImage(named: "2")!
+            return UIImage(named: "ef8")!
         case .ninthffect:
-            return UIImage(named: "3")!
+            return UIImage(named: "ef9")!
         case .tenthEffect:
-            return UIImage(named: "4")!
+            return UIImage(named: "ef10")!
         case .eleventhEffect:
-            return UIImage(named: "5")!
+            return UIImage(named: "ef11")!
         }
     }
     

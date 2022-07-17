@@ -42,10 +42,12 @@ extension HistoryVC: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let savedPicVC = SavedPicVC(nibName: String(describing: SavedPicVC.self), bundle: nil)
-        present(savedPicVC, animated: true)
+        
         let imageData = historyImages[indexPath.row].imageData
         guard let image = UIImage(data: imageData) else { return }
         savedPicVC.image = image
+        present(savedPicVC, animated: true)
+        
         
         
     }

@@ -58,7 +58,7 @@
                         <action selector="saveToGalleryAction:" destination="-1" eventType="touchUpInside" id="r1i-nA-6rz"/>
                     </connections>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c3n-VQ-k8m">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c3n-VQ-k8m">
                     <rect key="frame" x="16" y="147" width="382" height="466"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="c3n-VQ-k8m" secondAttribute="height" multiplier="191:233" id="YPg-ED-BAK"/>

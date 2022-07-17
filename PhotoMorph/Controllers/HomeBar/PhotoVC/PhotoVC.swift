@@ -95,12 +95,12 @@ class PhotoVC: UIViewController {
                 if counter <= 5 {
                     NetworkManager.statusAnimeGan (hash: hash) { statusResponse in
                         if statusResponse.status == "COMPLETE" {
+//                            self.activityRing.stopAnimating()
                             timer.invalidate()
                             guard let receivedArray = statusResponse.data?.data else { return }
                             let string = receivedArray[0]
                             let beginningOfSentence = string.lastIndex(of: ",")!
                             let slycedSentence = string[string.index(beginningOfSentence, offsetBy: 1)...]
-                                                        self.activityRing.stopAnimating()
                             let realString = String(slycedSentence)
                             let image = self.convertBase64ToImage(base64String: realString )
                             let resultVC = ResultVC(nibName: (String(describing: ResultVC.self)), bundle: nil)
@@ -111,6 +111,7 @@ class PhotoVC: UIViewController {
                             let okAction = UIAlertAction(title: "OK", style: .default)
                             alert.addAction(okAction)
                             self.present(alert, animated: true)
+                            self.activityRing.stopAnimating()
                         }
                     } failure: {
                         print("все плохо")

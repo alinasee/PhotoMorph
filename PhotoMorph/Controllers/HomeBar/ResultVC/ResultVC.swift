@@ -16,6 +16,7 @@ class ResultVC: UIViewController {
     @IBOutlet weak var editedView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        editedView.layer.cornerRadius = 40
     }
     
     override func viewWillAppear(_ animated: Bool) {
