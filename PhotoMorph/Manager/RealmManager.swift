@@ -24,4 +24,14 @@ final class RealmManager {
         }
     }
     
+    static func delete(object: SavedImage) {
+
+        let info = read()
+        guard let objectToDelete = info.filter({$0.imageData == object.imageData }).first else { return }
+        try? realm.write({
+            realm.delete(objectToDelete)
+        })
+        
+    }
+    
 }

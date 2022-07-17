@@ -12,6 +12,7 @@ class BarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
       settupControllers()
+        tabBar.tintColor = UIColor.darkGray
         
     }
     
@@ -20,8 +21,8 @@ class BarController: UITabBarController {
         let homeVC = HomeVC(nibName: String(describing: HomeVC.self), bundle: nil)
         let historyVC = HistoryVC(nibName: String(describing: HistoryVC.self), bundle: nil)
         
-        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "heart"), tag: 0)
-        historyVC.tabBarItem = UITabBarItem(title: "History", image: nil, tag: 1)
+        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "h"), tag: 0)
+        historyVC.tabBarItem = UITabBarItem(title: "History", image: UIImage(named: "hst"), tag: 1)
         
         self.viewControllers = [homeVC, historyVC]
     }

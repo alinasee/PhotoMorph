@@ -24,7 +24,6 @@ class HistoryVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         historyImages = RealmManager.read().reversed()
-        
         tableView.reloadData()
     }
 }
@@ -48,9 +47,20 @@ extension HistoryVC: UITableViewDataSource, UITableViewDelegate {
         guard let image = UIImage(data: imageData) else { return }
         savedPicVC.image = image
         present(savedPicVC, animated: true)
-        
-        
-        
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    internal func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            tableView.beginUpdates()
+            RealmManager.delete(object: self.historyImages[indexPath.row])
+            self.historyImages = RealmManager.read()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
     }
     
     
