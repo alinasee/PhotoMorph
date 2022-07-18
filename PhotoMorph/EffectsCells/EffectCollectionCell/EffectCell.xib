@@ -21,25 +21,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="358" height="200"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tAU-QZ-nNE">
-                                <rect key="frame" x="0.0" y="0.0" width="358" height="143.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="358" height="153.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3c-Fy-ZwM">
-                                <rect key="frame" x="16" y="158.5" width="326" height="21.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="16" y="163.5" width="326" height="21.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="10" height="10"/>
+                                <color key="shadowColor" systemColor="systemGrayColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="a3c-Fy-ZwM" secondAttribute="bottom" constant="20" id="2e5-b7-Hgr"/>
                             <constraint firstItem="tAU-QZ-nNE" firstAttribute="top" secondItem="pnH-Wm-4Ar" secondAttribute="top" id="7UT-bg-ezr"/>
                             <constraint firstItem="tAU-QZ-nNE" firstAttribute="leading" secondItem="pnH-Wm-4Ar" secondAttribute="leading" id="GcC-hU-sWt"/>
                             <constraint firstAttribute="trailing" secondItem="a3c-Fy-ZwM" secondAttribute="trailing" constant="16" id="GyQ-zU-DkP"/>
+                            <constraint firstAttribute="bottom" secondItem="a3c-Fy-ZwM" secondAttribute="bottom" constant="15" id="KAU-dB-cZJ"/>
                             <constraint firstAttribute="trailing" secondItem="tAU-QZ-nNE" secondAttribute="trailing" id="Nsz-LK-aMk"/>
                             <constraint firstItem="tAU-QZ-nNE" firstAttribute="width" secondItem="pnH-Wm-4Ar" secondAttribute="width" id="ROJ-uG-4Xi"/>
-                            <constraint firstItem="a3c-Fy-ZwM" firstAttribute="top" secondItem="tAU-QZ-nNE" secondAttribute="bottom" constant="15" id="Was-YR-w84"/>
+                            <constraint firstItem="a3c-Fy-ZwM" firstAttribute="top" secondItem="tAU-QZ-nNE" secondAttribute="bottom" constant="10" id="Was-YR-w84"/>
                             <constraint firstItem="a3c-Fy-ZwM" firstAttribute="leading" secondItem="pnH-Wm-4Ar" secondAttribute="leading" constant="16" id="j2E-tP-xa9"/>
                         </constraints>
                     </view>
@@ -64,6 +65,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

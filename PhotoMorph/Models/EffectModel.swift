@@ -26,27 +26,27 @@ enum Effect: CaseIterable {
     var effectName: String{
         switch self{
         case .firstEffect:
-            return "firstEffect"
+            return "Watercolour"
         case .secondEffect:
-            return "secondEffect"
+            return "Romantic"
         case .thirdEffect:
-            return "thirdEffect"
+            return "Dramatic"
         case .fourthEffect:
-            return "fourthEffect"
+            return "Sinister"
         case .fifthEffect:
-            return "fifthEffect"
+            return "Mysterious"
         case .sixthEffect:
-            return "sixthEffect"
+            return "Сomics"
         case .seventhEffect:
-            return "seventhEffect"
+            return "Disney"
         case .eighthEffect:
-            return "eighthEffect"
+            return "Artistic"
         case .ninthffect:
-            return "ninthffect"
+            return "Aesthetic"
         case .tenthEffect:
-            return "tenthEffect"
+            return "Sensual"
         case .eleventhEffect:
-            return "eleventhEffect"
+            return "Arcane"
         }
     }
         

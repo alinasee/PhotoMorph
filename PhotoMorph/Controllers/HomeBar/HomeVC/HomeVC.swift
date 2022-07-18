@@ -30,7 +30,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
         let cell = effectsCollectionView.dequeueReusableCell(withReuseIdentifier: String(describing: EffectCell.self), for: indexPath) as! EffectCell
         cell.setupCell(effect: effects[indexPath.row])
         cell.backView.backgroundColor = UIColor.systemGray3
-        cell.backView.isOpaque = true
+//        cell.backView.isOpaque = true
 //        cell.backView.layer.shadowColor = UIColor.black.cgColor
 //        cell.backView.layer.shadowOffset = CGSize(width: 3, height: 3)
 //        cell.backView.layer.shadowOpacity = 0.7
@@ -39,11 +39,11 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
         
         cell.backView.layer.cornerRadius = 40
         cell.effectPic.layer.cornerRadius = 40
-        cell.effectPic.layer.shadowColor = UIColor.darkGray.cgColor
+//        cell.effectPic.layer.shadowColor = UIColor.darkGray.cgColor
         
-        cell.effectPic.layer.shadowOffset = CGSize(width: 10.0, height: 10.0);
-        cell.effectPic.layer.shadowRadius = 17.0
-        cell.effectPic.layer.shadowOpacity = 1
+//        cell.effectPic.layer.shadowOffset = CGSize(width: 10.0, height: 10.0);
+//        cell.effectPic.layer.shadowRadius = 17.0
+//        cell.effectPic.layer.shadowOpacity = 1
        return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

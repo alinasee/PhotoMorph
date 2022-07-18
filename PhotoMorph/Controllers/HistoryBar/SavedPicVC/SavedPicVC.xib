@@ -45,12 +45,12 @@
                         <action selector="shareAction:" destination="-1" eventType="touchUpInside" id="nsj-s7-y4S"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XD-aT-gou">
-                    <rect key="frame" x="105" y="775" width="196" height="38"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XD-aT-gou">
+                    <rect key="frame" x="109" y="751" width="196" height="38"/>
                     <color key="backgroundColor" systemColor="systemGray3Color"/>
-                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="gray" title="CLOSE"/>
+                    <buttonConfiguration key="configuration" style="gray" title="GO BACK"/>
                     <connections>
                         <action selector="goHomeVCAction:" destination="-1" eventType="touchUpInside" id="Fav-0b-soU"/>
                     </connections>

@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 
 class PhotoVC: UIViewController {
-
+    
     var effects = Effect.allCases
     var morphImage: UIImage?
     static var imageBase64toSend: String!
@@ -58,6 +58,11 @@ class PhotoVC: UIViewController {
     }
     
     @IBAction func morphAction(_ sender: Any) {
+        sendPayloadToRequest()
+        
+    }
+    
+    func sendPayloadToRequest() {
         self.activityRing.startAnimating()
         if effectPicImage.image == effects[0].effectPic {
             animeGanRequest(sessionHash: sessionHash, payloadVersion: effects[0].payloadVersion)
@@ -88,8 +93,8 @@ class PhotoVC: UIViewController {
         NetworkManager.postAnimeGan (sessionHash: sessionHash, payloadVersion: payloadVersion) { responce in
             guard let hash  = responce.hash else { return }
             var counter = 0
-            Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { timer in
-                if counter <= 10 {
+            Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
+                if counter <= 6 {
                     NetworkManager.statusAnimeGan (hash: hash) { [self] statusResponse in
                         if statusResponse.status == "COMPLETE" {
                             self.activityRing.stopAnimating()
@@ -104,9 +109,14 @@ class PhotoVC: UIViewController {
                             resultVC.image = image
                             self.present(resultVC, animated: true)
                         } else {
-                            let alert  = UIAlertController(title: nil, message: "Проблемы с сервером, попробуйте еще раз", preferredStyle: .alert)
-                            let okAction = UIAlertAction(title: "OK", style: .default)
+                            let alert  = UIAlertController(title: nil, message: "Проблемы соединения с сервером", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "Продолжить", style: .default) { _ in self.sendPayloadToRequest()
+                            }
+                            let cancelAction = UIAlertAction(title: "Отменить", style: .destructive) { _ in
+                                self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+                            }
                             alert.addAction(okAction)
+                            alert.addAction(cancelAction)
                             self.present(alert, animated: true)
                         }
                     } failure: {
@@ -125,8 +135,8 @@ class PhotoVC: UIViewController {
         NetworkManager.postArcaneGan (sessionHash: sessionHash, payloadVersion: payloadVersion) { responce in
             guard let hash  = responce.hash else { return }
             var counter = 0
-            Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { timer in
-                if counter <= 5 {
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
+                if counter <= 6 {
                     NetworkManager.statusArcaneGan (hash: hash) { statusResponse in
                         if statusResponse.status == "COMPLETE" {
                             self.activityRing.stopAnimating()
@@ -141,9 +151,15 @@ class PhotoVC: UIViewController {
                             resultVC.image = image
                             self.present(resultVC, animated: true)
                         } else {
-                            let alert  = UIAlertController(title: nil, message: "Проблемы с сервером, попробуйте еще раз", preferredStyle: .alert)
-                            let okAction = UIAlertAction(title: "OK", style: .default)
+                            let alert  = UIAlertController(title: nil, message: "Проблемы соединения с сервером", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "Продолжить", style: .default) { _ in self.sendPayloadToRequest()
+                            }
+                            let cancelAction = UIAlertAction(title: "Отменить", style: .destructive) { _ in
+                                self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+                            }
                             alert.addAction(okAction)
+                            alert.addAction(cancelAction)
+                            self.present(alert, animated: true)
                         }
                     } failure: {
                         print("все плохо")
@@ -177,7 +193,9 @@ class PhotoVC: UIViewController {
     }
     
     func convertImageToBase64(){
-        let imageData = morphImage?.jpegData(compressionQuality: 1)
+        guard let image = morphImage else { return }
+        let rotatedImage = autofixImageOrientation(image)
+        let imageData = rotatedImage.jpegData(compressionQuality: 1)
         PhotoVC.imageBase64toSend = imageData?.base64EncodedString()
         print( PhotoVC.imageBase64toSend ?? "Could not encode image to Base64")
     }
@@ -198,6 +216,14 @@ class PhotoVC: UIViewController {
             randomString.append(charactersArray[Int(arc4random()) % charactersArray.count])
         }
         sessionHash = randomString
+    }
+    
+    func autofixImageOrientation(_ image: UIImage)->UIImage {
+        UIGraphicsBeginImageContext(image.size)
+        image.draw(at: .zero)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage ?? image
     }
 }
 

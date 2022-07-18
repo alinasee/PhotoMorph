@@ -25,10 +25,11 @@ class HistoryVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         historyImages = RealmManager.read().reversed()
         tableView.reloadData()
+        tableView.beginUpdates()
+        tableView.setContentOffset(CGPoint(x: 0, y: -tableView.adjustedContentInset.top), animated: true)
+        tableView.endUpdates()
     }
 }
-
-
 
 extension HistoryVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,11 +39,12 @@ extension HistoryVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: HistoryCell.self), for: indexPath) as! HistoryCell
         cell.setupCell(savedImage: historyImages[indexPath.row])
+        cell.selectionStyle = .none
+
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let savedPicVC = SavedPicVC(nibName: String(describing: SavedPicVC.self), bundle: nil)
-        
         let imageData = historyImages[indexPath.row].imageData
         guard let image = UIImage(data: imageData) else { return }
         savedPicVC.image = image
@@ -57,11 +59,9 @@ extension HistoryVC: UITableViewDataSource, UITableViewDelegate {
         if editingStyle == .delete{
             tableView.beginUpdates()
             RealmManager.delete(object: self.historyImages[indexPath.row])
-            self.historyImages = RealmManager.read()
+            self.historyImages = RealmManager.read().reversed()
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
         }
     }
-    
-    
 }
